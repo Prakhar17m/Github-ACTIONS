@@ -1,0 +1,116 @@
+Github Actions
+
+- GitHub Actions is the built-in CI/CD tool from GitHub that lets you automate:
+✅ Build
+✅ Test
+✅ Docker image build
+✅ Push to Docker Hub
+✅ Deploy to Kubernetes
+
+
+# github actions==CI/CD pipelineing tool
+
+## CI = continuous integration
+Continuous Integration (CI) means:
+Developers frequently merge code into a shared repository, and every change is automatically built and tested.
+
+🔥 What happens in CI?
+When you push code to GitHub:
+✅ Code is pulled
+✅ Dependencies are installed
+✅ Tests are executed
+✅ Build is created (e.g., Docker image)
+❌ If tests fail → pipeline fails
+
+🎯 Goal of CI: Catch bugs early before we do the merge.
+🎯 CI does:  Push → Run tests → Build Docker image → Push to Docker Hub
+
+
+
+## CD = continous deployment  (or Continuous Delivery)
+There are two meanings people confuse:
+1️⃣ Continuous Delivery- build+test+approval to deploy
+Code is automatically prepared for release,but manual approval is needed to deploy.
+2️⃣ Continuous Deployment -build+test+deploy
+Code is automatically deployed to production without manual approval.
+
+🎯 CD does:New Docker image → Deploy to Kubernetes cluster automatically
+
+
+🎯 CI/CD -pipleline is managed by github actions -and github action is the tool used to build , test , deploy the application automatically.
+
+
+## Workflow file in github action
+- A Workflow in GitHub Actions:
+✅ It is a YAML (.yml) file
+✅ Contains automation instructions for your project
+✅ Stored inside: .github/workflows/your-file.yml
+
+- It defines:
+When to run (Events)
+What to run (Jobs)
+How to run (Steps)
+
+## Events/triggres:
+- triggres are used to run the yml Triggers define when the workflow should run.
+- Common triggers:
+on:
+  push:    -- When code is pushed
+  pull_request:   --- When PR is created/updated
+  workflow_dispatch:   --- Manual trigger
+  schedule:     ---Runs on cron schedule
+
+## JOB:
+A Job:
+- Is a group of steps
+- Runs on a machine
+- That machine is called a Runner
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+🖥 Runner
+- Runner = Machine where job executes
+- Types: ubuntu-latest , windows-latest , macos-latest
+
+## steps:
+- A Job is divided into Steps.
+- Each step performs a small task like:
+   -- Checkout code
+   -- Install Python
+   -- Install dependencies
+   -- Run tests 
+   -- Build Docker image
+
+🔥 Final Structure
+Workflow
+   ├── Events (Triggers)
+   ├── Jobs
+          ├── Runner
+          ├── Steps
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+🎯 Interview Ready Definition
+
+A GitHub Actions workflow is a YAML file stored inside .github/workflows/ that defines automated CI/CD pipelines. It contains triggers (events), jobs, and steps that run on a runner machine.
+14+25+13+13
