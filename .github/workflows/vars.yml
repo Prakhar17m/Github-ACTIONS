@@ -1,0 +1,23 @@
+name: Variables and Secrets in Github Actions
+on:
+    push:
+        branches: ["main"]
+    workflow_dispatch:
+env:
+    author: master
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        env:
+            baseapi: http://baseurl.api/
+        steps:
+            - name: All Type of Variables and Secrets
+              run: |
+                  echo "Workflow Variables | $author has created the api $baseapi which will expire in $expire"
+                  # echo "Configuration Variable | Version of App is ${{ vars.VERSION}}"
+                  # echo "Secret | Secret Key is ${{ secrets.KEY}}"
+                  # ${{secrets.KEY_VISIBLE}}
+                  # echo "Context Variables | Repo Name is ${{ github.repository }}"
+
+              env:
+                  expire: 10days
