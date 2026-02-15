@@ -123,4 +123,3 @@ Workflow
 🎯 Interview Ready Definition
 
 A GitHub Actions workflow is a YAML file stored inside .github/workflows/ that defines automated CI/CD pipelines. It contains triggers (events), jobs, and steps that run on a runner machine.
-14+25+13+13
